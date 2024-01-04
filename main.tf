@@ -28,7 +28,7 @@ resource "aws_security_group" "main" {
 }
 
 resource "aws_instance" "main" {
-  ami                    = "ami-03265a0778a880afb"
+  ami                    = data.aws_ami.ami.id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id              = var.subnet_ids[0]
